@@ -22,7 +22,7 @@ pasta raíz do projeto por linha de comando, e executar o comando "mvn install" 
         -> Deixar rodando um serviço do banco de dados PostgreSQL localmente, na porta 5432, com o username e password
            sendo "postgres", assim como está especificado no arquivo "application.properties";
 
-4. Não é necessário criar a estrutura do banco de dados na mão pois, no momento em que a aplicação for executada, o JPA
+4. Não é necessário criar a estrutura do banco de dados manualmente pois, no momento em que a aplicação for executada, o JPA
 faz a criação de toda a estrutura automaticamente, mas, caso seja necessário, na raíz do projeto encontra-se o arquivo
 "cappay.sql" que contém toda a estrutura de criação de tabelas bem como toda a estrutura do banco.
 
