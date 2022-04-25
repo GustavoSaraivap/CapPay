@@ -29,10 +29,6 @@ public class Account {
     @JoinColumn(name = "user_id")
     private User userId;
 
-//    @OneToOne
-//    @JoinColumn(name = "user_id", referencedColumnName = "id")
-//    private User userId;
-
     @Column(name = "balance", nullable = false)
     private double balance;
 

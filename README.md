@@ -2,9 +2,9 @@
 CapPay digital bank account
 
 ------------------------------------------------------------------------------------------------------------------------
-| Esta API está toda documentada no Swagger, para ver a documentação, é necessário que o projeto                       |
-| esteja rodando, então, deve acessar a URL "http://localhost:8080/swagger-ui.html", la é possível testar todos os     |
-| end points                                                                                                           |
+ Esta API está toda documentada no Swagger, para ver a documentação, é necessário que o projeto                       
+ esteja rodando, então, deve acessar a URL "http://localhost:8080/swagger-ui.html", la é possível testar todos os     
+ end points                                                                                                           
 ------------------------------------------------------------------------------------------------------------------------
 
 1. Para rodar esta aplicação é necessário ter a versão 11 do java.

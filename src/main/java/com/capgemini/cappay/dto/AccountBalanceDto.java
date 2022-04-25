@@ -10,11 +10,8 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter @Setter
-public class AccountDto {
+public class AccountBalanceDto {
 
     @NotNull
-    private Long userId;
-
-    @NotNull
-    private String accountType;
+    private double balance;
 }

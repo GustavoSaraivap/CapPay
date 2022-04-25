@@ -1,5 +1,6 @@
 package com.capgemini.cappay.service;
 
+import com.capgemini.cappay.dto.AccountBalanceDto;
 import com.capgemini.cappay.dto.AccountDto;
 import com.capgemini.cappay.enums.AccountStatus;
 import com.capgemini.cappay.enums.AccountType;
@@ -8,16 +9,10 @@ import com.capgemini.cappay.model.Account;
 import com.capgemini.cappay.model.User;
 import com.capgemini.cappay.repository.AccountRepository;
 import com.capgemini.cappay.utils.CsvHelper;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVPrinter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.*;
 
 @Service
@@ -57,15 +52,15 @@ public class AccountService {
         return accountRepository.save(account);
     }
 
-    public Account updateBalance(AccountDto accountDto, Long id) throws CapPayException {
+    public Account updateBalance(AccountBalanceDto accountBalanceDto, Long id) throws CapPayException {
         Optional<Account> account = accountRepository.findById(id);
 
-        if (accountDto.getBalance() < 0) {
+        if (accountBalanceDto.getBalance() < 0) {
             throw new CapPayException(":::VOCÊ NÃO PODE ATUALIZAR SEU SALDO COM VALOR NEGATIVO!:::" +
                                       ":::YOU CANNOT UPDATE YOUR BALANCE WITH NEGATIVE VALUE!:::");
         }
 
-        account.get().setBalance(accountDto.getBalance());
+        account.get().setBalance(accountBalanceDto.getBalance());
         return accountRepository.save(account.get());
     }
 
@@ -74,7 +69,6 @@ public class AccountService {
     }
 
     public ByteArrayInputStream getActiveAccountsByMonth(String month) throws IOException {
-//        List<Account> accounts = accountRepository.getActiveAccountsByMonth(month);
         List<Account> accounts = accountRepository.getActiveAccountsByMonth(month);
         return CsvHelper.accountToCSV(accounts);
     }
